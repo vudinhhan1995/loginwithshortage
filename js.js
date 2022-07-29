@@ -1,4 +1,16 @@
 $(document).ready(function () {
+  function chenformlogin(){
+    //cộng chuỗi và tạo element mới
+    var khoihtml = "";
+    khoihtml += '<button id="logout">LOGOUT</button>';
+    khoihtml += '<h1>VN EXPRESS</h1>';
+    khoihtml += '<div class="2nutbam">';
+    khoihtml += '<button id ="showcontent">Show Content</button>';
+    khoihtml += '<button id="loadcontent">Load Content</button>';
+    khoihtml += '</div>';
+    khoihtml += '<textarea name="textarea" id="textarea" cols="30" rows="10"></textarea>';
+    $('body').append(khoihtml);
+  }
   $("#loginForm").validate({
     rules: {
       username: {
@@ -10,31 +22,20 @@ $(document).ready(function () {
     },
     messages: {
       username: {
-        required: "  Username please"
+        required: "   nhập user name bạn ê"
       },
       password: {
-        required: "  Password can't empty"
+        required: "  trống pass kìa"
       }
     },
     submitHandler: function (form) { 
       let userName=$('#username').val();
       let passWord=$('#password').val();
-    
      if(userName=='admin' && passWord=='admin'){
         alert('success');
         //xóa khối login
         $('#loginForm').remove();
-        //cộng chuỗi và tạo element mới
-        let khoihtml = "";
-        khoihtml += '<button id="logout">LOGOUT</button>';
-        khoihtml += '<h1>VN EXPRESS</h1>';
-        khoihtml += '<div class="2nutbam">';
-        khoihtml += '<button id ="showcontent">Show Content</button>';
-        khoihtml += '<button id="loadcontent">Load Content</button>';
-        khoihtml += '</div>';
-        khoihtml += '<textarea name="textarea" id="textarea" cols="30" rows="10"></textarea>';
-        $('body').append(khoihtml);
-
+        chenformlogin();
         $('#logout').click( () => {
             location.replace('./index.html')
         })  //end logout
