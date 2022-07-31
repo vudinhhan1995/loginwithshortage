@@ -1,15 +1,4 @@
 $(document).ready(() =>{
-  if(window.localStorage.getItem('userName') =='admin@admin.com' && window.localStorage.getItem('passWord') =='admin'){
-    //chuyen toi trang welcome
-    alert('bạn đã đăng nhập');
-    location.replace('./welcome.html');
-    }
-      else{
-        // chuyen toi trang login
-        location.replace('./index.html');
-        alert('bạn chưa đăng nhập');
-         
-      }    
     $("#loginForm").validate({
         rules: {
           username: {
@@ -32,7 +21,7 @@ $(document).ready(() =>{
         let userName=$('#username').val();
         let passWord=$('#password').val();
         //kiểm tra biến ghi vào trong localstorage xem có phải là admin admin không
-        if(userName =='admin@admin.com' && passWord =='admin'){
+        if(userName =='admin' && passWord =='admin'){
                       //ghi user và pass vào trong localstorage
         window.localStorage.setItem('userName', userName);
         window.localStorage.setItem('passWord', passWord);  
@@ -43,7 +32,7 @@ $(document).ready(() =>{
           else{
             // chuyen toi trang login
             alert('username hoặc password không đúng');
-            location.replace('./index.html'); 
+            location.replace('./formlogin.html'); 
           }
         }
       });
