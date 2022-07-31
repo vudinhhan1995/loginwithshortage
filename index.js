@@ -3,6 +3,6 @@ $(document).ready(() =>{
         location.replace('./welcome.html');
     }
     else{
-        location.replace('./formlogin.html');
+        location.replace('./login.html');
     }
 })

@@ -1,4 +1,15 @@
 $(document).ready(() =>{
+  if(window.localStorage.getItem('userName') =='admin@admin.com' && window.localStorage.getItem('passWord') =='admin'){
+    //chuyen toi trang welcome
+    alert('bạn đã đăng nhập');
+    location.replace('./welcome.html');
+    }
+      else{
+        // chuyen toi trang login
+        location.replace('./index.html');
+        alert('bạn chưa đăng nhập');
+         
+      }    
     $("#loginForm").validate({
         rules: {
           username: {
@@ -20,19 +31,19 @@ $(document).ready(() =>{
             //lấy user và mật khẩu từ ô input user nhập
         let userName=$('#username').val();
         let passWord=$('#password').val();
-            //ghi user và pass vào trong localstorage
-        window.localStorage.setItem('userName', userName);
-        window.localStorage.setItem('passWord', passWord);
         //kiểm tra biến ghi vào trong localstorage xem có phải là admin admin không
-        if(window.localStorage.getItem('userName') =='admin' && window.localStorage.getItem('passWord') =='admin'){
-            //chuyen toi trang welcome
+        if(userName =='admin@admin.com' && passWord =='admin'){
+                      //ghi user và pass vào trong localstorage
+        window.localStorage.setItem('userName', userName);
+        window.localStorage.setItem('passWord', passWord);  
+          //chuyen toi trang welcome
             alert('đăng nhập thành công');
             location.replace('./welcome.html'); 
           }
           else{
             // chuyen toi trang login
             alert('username hoặc password không đúng');
-            location.replace('./formlogin.html'); 
+            location.replace('./index.html'); 
           }
         }
       });
