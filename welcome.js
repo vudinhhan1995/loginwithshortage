@@ -7,12 +7,8 @@ $(document).ready(() =>{
     })  
     }
       else{
-            popup('Bạn chưa đăng nhập');
-            setTimeout(() => {
-        //chuyen toi trang welcome
-          location.replace('./index.html')
-        }, 2000);
-            return;
+            alert('Bạn chưa đăng nhập');
+            location.replace('./formlogin.html')
       }    
 })
 
