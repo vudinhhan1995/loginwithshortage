@@ -1,4 +1,5 @@
-$(document).ready(() =>{
+$(document).ready(() =>{ 
+    //kiểm tra điều kiện nhập vào.
     $("#loginForm").validate({
         rules: {
           username: {
@@ -22,17 +23,25 @@ $(document).ready(() =>{
         let passWord=$('#password').val();
         //kiểm tra biến ghi vào trong localstorage xem có phải là admin admin không
         if(userName =='admin' && passWord =='admin'){
-                      //ghi user và pass vào trong localstorage
+          //thongbao
+          popup('Đăng Nhập Thành Công');
+          setTimeout(() => {
+               //ghi user và pass vào trong localstorage
         window.localStorage.setItem('userName', userName);
         window.localStorage.setItem('passWord', passWord);  
           //chuyen toi trang welcome
-            alert('đăng nhập thành công');
-            location.replace('./welcome.html'); 
+            location.replace('./index.html')
+          }, 2000);
+                     ; 
           }
           else{
+            popup('Đăng Nhập Thất Bại');
+            //thongbao
+            setTimeout(() => {
+              location.replace('./index.html'); 
+            }, 2000);
             // chuyen toi trang login
-            alert('username hoặc password không đúng');
-            location.replace('./formlogin.html'); 
+            
           }
         }
       });
