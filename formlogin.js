@@ -1,4 +1,8 @@
 $(document).ready(() =>{ 
+
+  if(window.localStorage.getItem('userName') =='admin' && window.localStorage.getItem('passWord') =='admin'){
+        location.replace('./welcome.html');
+    }
     //kiểm tra điều kiện nhập vào.
     $("#loginForm").validate({
         rules: {
